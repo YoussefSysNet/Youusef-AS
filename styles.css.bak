@@ -1,0 +1,897 @@
+/* Reset & basic setup */
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Special Gothic Expanded One", sans-serif; 
+    background-color: #000;
+    color: #fff;
+    overflow: -moz-scrollbars-none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer 10+ */
+    scrollbar-width: none; /* For Firefox */
+    /* scroll-behavior: smooth; */
+  }
+  
+  /* Hide scrollbar for all browsers */
+  body::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  
+  /* Hide scrollbar for all elements */
+  *::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  
+  /* Hide scrollbar for Firefox */
+  * {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer 10+ */
+  }
+  
+  /* Hide scrollbar for specific elements that might have scrollbars */
+  html::-webkit-scrollbar,
+  .container::-webkit-scrollbar,
+  .container-fluid::-webkit-scrollbar,
+  section::-webkit-scrollbar,
+  div::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ensure smooth scrolling is enabled */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Additional scrollbar hiding for specific elements */
+  .code-box::-webkit-scrollbar,
+  .project-card::-webkit-scrollbar,
+  .upcoming-card::-webkit-scrollbar,
+  .journey-card::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom scroll indicator styling */
+  #scroll-indicator {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  /* Ensure no scrollbars appear on any scrollable content */
+  .overflow-auto::-webkit-scrollbar,
+  .overflow-scroll::-webkit-scrollbar,
+  .overflow-y-auto::-webkit-scrollbar,
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Loading screen */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Font and base letter style */
+.loading-text span {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-size: 120px;
+  color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Glowing overlay */
+.loading-text span::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #008CFF;
+  opacity: 0;
+}
+
+  
+  /* Home page Name Animation  */
+
+  /* === removing default button style ===*/
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: default;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #008CFF;
+  --fs-size: 2em;
+  letter-spacing: 3px; 
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Special Gothic Expanded One", sans-serif;
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+/* Hover animation text */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s ease;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* Trigger hover effect */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+  
+/* Hero View Project Button */
+
+.lead{
+  margin-bottom: 30px;
+}
+
+
+.shadow__btn {
+  /* margin-top: 120px; */
+  padding: 8px 18px;
+  border: none;
+  font-size: 0.9rem;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  background: rgb(0, 140, 255);
+  box-shadow: 0 0 20px rgb(0, 140, 255);
+  text-decoration: none;
+}
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(0, 140, 255),
+              0 0 25px rgb(0, 140, 255),
+              0 0 50px rgb(0, 140, 255),
+              0 0 100px rgb(0, 140, 255);
+}
+
+/* Hero mail  */
+.fixed-email {
+  font-family: 'Special Gothic Expanded One', sans-serif;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transform-origin: left center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.8rem;
+  color: #008CFF;
+  text-decoration: none;
+  letter-spacing: 2px;
+  z-index: 999;
+  transition: color 0.3s ease;
+  padding: 5px;
+}
+
+.fixed-email:hover {
+  cursor: pointer;
+}
+
+
+  /* About me  */
+  /* Removed old dbutton styles - replaced with animated download button */
+  
+  /* Journey Section  */
+  .group {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Mobile menu */
+  #mobileMenu a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  #mobileMenu a:hover {
+    color: #0d6efd;
+  }
+  
+  
+  /* Hero section */
+  .hero {
+    min-height: 90vh;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .hero-left {
+    flex: 1 1 45%;
+  }
+  
+  .hero-right {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .code-box {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    width: 100%;
+    max-width: 500px;
+    font-family: "Special Gothic Expanded One", sans-serif;    font-size: 1rem;
+    overflow: auto;
+    border-left: 4px solid #0d6efd;
+    transition: transform 0.3s ease;
+  }
+  
+  .code-box:hover {
+    transform: scale(1.03);
+  }
+  
+  .view-projects-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .view-projects-btn:hover {
+    transform: scale(1.05);
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  /* About Section  */
+  #about i{
+    font-size: 30px;
+  }
+
+  /* Tech Stack */
+  #techstack i {
+    font-size: 50px;
+  }
+  
+
+  #framer{
+
+    color: white;
+  }
+
+  /* Animated Social Icons */
+  ul {
+    list-style: none;
+  }
+
+  li::after {
+    content: "";
+    display: block;
+    height: 0px;
+    transition: height 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  li:hover::after {
+    height: 10px;
+  }
+
+  .example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
+  }
+
+  .example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+  }
+
+  .example-2 .icon-content .tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: -40px;
+  }
+
+  .example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  }
+
+  .example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+  }
+
+  .example-2 .icon-content a:hover {
+    color: white;
+  }
+
+  .example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .example-2 .icon-content a:hover .filled {
+    height: 100%;
+  }
+
+  .example-2 .icon-content a[data-social="instagram"] .filled,
+  .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background-color: #e1306c;
+  }
+
+  .example-2 .icon-content a[data-social="linkedin"] .filled,
+  .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0a66c2;
+  }
+
+  .example-2 .icon-content a[data-social="email"] .filled,
+  .example-2 .icon-content a[data-social="email"] ~ .tooltip {
+    background-color: #ea4335;
+  }
+
+  .example-2 .icon-content a[data-social="github"] .filled,
+  .example-2 .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #333;
+  }
+
+  /* Download Button */
+  .download-container {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .download-label {
+    background-color: transparent;
+    border: 2px solid #008CFF;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    width: 160px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-label:hover {
+    background-color: #008CFF;
+  }
+
+  .download-label .download-input {
+    display: none;
+  }
+
+  .download-label .download-title {
+    font-size: 17px;
+    color: #fff;
+    transition: all 0.4s ease;
+    text-align: center;
+    width: 100%;
+  }
+
+  .download-label .download-circle {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background-color: #008CFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .download-label .download-circle .download-icon {
+    color: #fff;
+    width: 30px;
+    transition: all 0.4s ease;
+  }
+    }
+    100% {
+      scale: 0.95;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
+  @keyframes installing {
+    from {
+      height: 0;
+    }
+    to {
+      height: 100%;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(-90deg) translate(27px) rotate(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    99% {
+      transform: rotate(270deg) translate(27px) rotate(270deg);
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  
+/* Line Waves background */
+#line-waves-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#line-waves-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Ensure particles work with locomotive scroll */
+#particles-projects {
+  position: absolute !important;
+  z-index: 0;
+}
+  
+  /* Custom Cursor */
+  * {
+    cursor: url('./assets/cursor.png'), auto;
+  }
+  
+  /* Custom cursor for interactive elements */
+  a, button, .button, .shadow__btn, .download-label, 
+  .project-card, .upcoming-card, .journey-card,
+  .example-2 .icon-content a,
+  .category-label,
+  input[type="checkbox"],
+  [data-scroll] {
+    cursor: url('./assets/cursor.png'), pointer;
+  }
+  
+  /* Ensure cursor works on all clickable elements */
+  [onclick], [role="button"], [tabindex] {
+    cursor: url('./assets/cursor.png'), pointer;
+  }
+  
+/* Performance Optimizations */
+
+/* Lazy loading for images */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .loading-text span,
+  .button .hover-text,
+  .shadow__btn,
+  .download-container,
+  .project-card,
+  .journey-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Optimize animations for better performance */
+.project-card,
+.journey-card,
+.upcoming-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth scrolling optimization */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header if any */
+}
+
+/* Font loading optimization */
+@font-face {
+  font-family: 'Special Gothic Expanded One';
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+}
+
+/* Critical CSS for above-the-fold content */
+.hero-section {
+  contain: layout style paint;
+}
+
+/* Optimize particle animations */
+#particles-projects,
+#line-waves-container {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Contact form optimizations */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  contain: layout style;
+}
+
+/* Loading state optimizations */
+#loading {
+  contain: layout style paint;
+}
+
+/* Scroll indicator optimization */
+#scroll-indicator {
+  contain: layout style;
+  will-change: height;
+}
+
+/* Custom cursor optimization */
+* {
+  cursor: url('./assets/cursor.png'), auto;
+}
+
+/* Focus management for accessibility */
+*:focus {
+  outline: 2px solid #008CFF;
+  outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #008CFF;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .project-card,
+  .journey-card {
+    break-inside: avoid;
+  }
+}
+
+/* Back to Top Button */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+
+.back2top-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(29, 205, 159, 0.253);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.back2top-button.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back2top-button:hover {
+  width: 140px;
+  border-radius: 50px;
+  background-color: #008CFF;
+  box-shadow: 0px 0px 0px 4px rgba(29, 205, 159, 0.4);
+}
+
+.svgIcon {
+  width: 12px;
+  transition: transform 0.3s ease;
+}
+
+.back2top-button:hover .svgIcon {
+  transform: translateY(-220%);
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button-label {
+  position: absolute;
+  bottom: -20px;
+  color: white;
+  font-size: 0px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.back2top-button:hover .button-label {
+  font-size: 13px;
+  opacity: 1;
+  bottom: unset;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .wrapper {
+    bottom: 20px;
+    right: 20px;
+  }
+  .back2top-button {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .back2top-button:hover {
+    width: 120px;
+  }
+}
+
+/* Form validation styles */
+.validation-error {
+  animation: slideIn 0.3s ease-out;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left: 3px solid #ef4444;
+}
+
+.validation-success {
+  animation: slideIn 0.3s ease-out;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: rgba(34, 197, 94, 0.1);
+  border-left: 3px solid #008CFF;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced form input styles */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: #008CFF;
+  box-shadow: 0 0 0 3px rgba(29, 205, 159, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-form input.border-red-500,
+.contact-form textarea.border-red-500 {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.contact-form input.border-blue-500,
+.contact-form textarea.border-blue-500 {
+  border-color: #008CFF;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* Form validation icon styles */
+.validation-success::before {
+  content: "✓";
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: #008CFF;
+}
+
+.validation-error::before {
+  content: "⚠";
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: #ef4444;
+}
+
+/* Responsive validation messages */
+@media (max-width: 768px) {
+  .validation-error,
+  .validation-success {
+    font-size: 0.8rem;
+    padding: 0.375rem;
+  }
+}
+
+/* Youssef reference-first refinements */
+body{padding-top:0}.hero-ref{padding-top:68px}.yo-cursor-dot{position:fixed;left:0;top:0;width:6px;height:6px;border-radius:50%;background:#008CFF;box-shadow:0 0 14px #008CFF;pointer-events:none;z-index:10000;margin:-3px 0 0 -3px}.yo-cursor-ring{position:fixed;left:0;top:0;width:34px;height:34px;border:1px solid rgba(0,140,255,.7);border-radius:50%;pointer-events:none;z-index:9999;margin:-17px 0 0 -17px;transition:width .2s,height .2s,margin .2s,background .2s,border-color .2s}.yo-cursor-ring.hover{width:52px;height:52px;margin:-26px 0 0 -26px;background:rgba(0,140,255,.08);border-color:#008CFF}.site-header .logo{font-family:"Special Gothic Expanded One",sans-serif}.site-header nav a{font-family:"Special Gothic Expanded One",sans-serif}.section-title,.text-center h2{scroll-margin-top:90px}.project-card{min-height:100%}.project-card img{transition:transform .7s ease}.project-card:hover img{transform:scale(1.045)}
+@media(max-width:900px){body{cursor:auto!important}.yo-cursor-dot,.yo-cursor-ring{display:none}.hero-ref{padding-top:68px}}
+
+/* Projects + Certifications polish */
+.project-card { border:1px solid rgba(0,140,255,.18); background:#0d0d0d !important; color:#fff !important; }
+.project-card img { height:220px !important; object-fit:cover; display:block; width:100%; }
+.project-card .p-6 { background:#0d0d0d; }
+.project-card h3 { color:#008CFF; }
+.project-card p { color:#e5e7eb !important; }
+.cert-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; max-width:1200px; margin:0 auto; }
+.cert-card-modern { background:#0d0d0d; border:1px solid rgba(255,255,255,.12); border-radius:18px; overflow:hidden; transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+.cert-card-modern:hover { transform:translateY(-7px); border-color:rgba(0,140,255,.75); box-shadow:0 18px 45px rgba(0,140,255,.13); }
+.cert-image-wrap { background:#fff; height:205px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.cert-image-wrap img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .55s ease; }
+.cert-card-modern:hover .cert-image-wrap img { transform:scale(1.035); }
+.cert-body { padding:20px 20px 22px; text-align:center; }
+.cert-provider { display:block; font-size:11px; letter-spacing:1.6px; color:#8ca1b8; margin-bottom:10px; font-weight:700; }
+.cert-body h3 { font-size:20px; line-height:1.35; min-height:54px; margin:0 0 16px; color:#fff; font-weight:700; }
+.cert-badge { display:inline-flex; align-items:center; gap:7px; border:1px solid #008CFF; color:#008CFF; border-radius:999px; padding:7px 13px; font-size:12px; font-weight:700; }
+@media (max-width: 1024px) { .cert-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width: 640px) { .cert-grid { grid-template-columns:1fr; } .cert-image-wrap { height:190px; } .project-card img { height:190px !important; } }
+
+/* Final visual refinement: compact, centered sections */
+#tech-stack{padding-top:72px!important;padding-bottom:72px!important}
+#tech-stack>.max-w-7xl{max-width:1120px!important;margin-left:auto!important;margin-right:auto!important}
+#tech-stack .text-center.mb-14{margin-bottom:46px!important}
+#tech-stack .text-center.mb-14 h2,
+#tech-stack .mb-12.reveal-section>h3{color:#fff!important}
+#tech-stack .text-center.mb-14 h2{font-size:3.25rem!important;line-height:1.05!important;letter-spacing:-.02em}
+#tech-stack .text-center.mb-14 p{font-size:1rem!important}
+#tech-stack .mb-12.reveal-section{margin-bottom:52px!important}
+#tech-stack .mb-12.reveal-section:last-child{margin-bottom:0!important}
+#tech-stack .mb-12.reveal-section>h3{font-size:1.15rem!important;margin-bottom:18px!important;text-align:center!important;letter-spacing:.12em!important}
+.skill-card-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:14px!important;max-width:1080px!important;margin:0 auto!important}
+.skill-card{min-height:122px!important;height:122px!important;border-radius:12px!important;padding:14px 8px!important;gap:10px!important}
+.skill-card-icon{font-size:30px!important}
+.skill-card span{font-size:14px!important;font-weight:600!important}
+
+/* Keep section headings clean and consistent */
+#about h2,#activity h2,#notes h2,#projects h2,#certifications h2,#contact-form h2{color:#fff!important}
+#about>.max-w-6xl,#activity>.max-w-6xl,#notes>.max-w-6xl,#projects .max-w-6xl,#certifications>.max-w-7xl{max-width:1120px!important;margin-left:auto!important;margin-right:auto!important}
+#activity,#notes,#projects,#certifications,#contact-form{padding-top:72px!important;padding-bottom:72px!important}
+
+@media(max-width:1100px){
+  .skill-card-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+  #tech-stack .text-center.mb-14 h2{font-size:2.4rem!important}
+  .skill-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .skill-card{height:112px!important;min-height:112px!important}
+  .skill-card-icon{font-size:27px!important}
+  .skill-card span{font-size:13px!important}
+}
