@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Youssef | Sys &amp; Net</title>
+<link rel="icon" type="image/png" href="favicon-youssef.png">
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+.skill-card-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;}
+.skill-card{min-height:138px;background:#0d0d0d;border:1px solid #252525;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 10px;gap:14px;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background .28s ease;position:relative;overflow:hidden;}
+.skill-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,140,255,.12),transparent 58%);opacity:0;transition:opacity .28s ease;}
+.skill-card:hover{transform:translateY(-7px);border-color:#008CFF;box-shadow:0 12px 35px rgba(0,140,255,.16);background:#101010;}
+.skill-card:hover::before{opacity:1;}
+.skill-card-icon{font-size:38px;color:#008CFF;position:relative;z-index:1;transition:transform .28s ease,text-shadow .28s ease;}
+.skill-card:hover .skill-card-icon{transform:scale(1.1);text-shadow:0 0 18px rgba(0,140,255,.55);}
+.skill-card span{font-size:16px;font-weight:600;line-height:1.35;color:#f1f1f1;position:relative;z-index:1;}
+@media(max-width:1100px){.skill-card-grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
+@media(max-width:700px){.skill-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.skill-card{min-height:120px}.skill-card-icon{font-size:32px}.skill-card span{font-size:14px}}
+</style>
+
+<style id="skills-real-icons">
+#tech-stack .skill-card-icon{font-size:38px;position:relative;z-index:1;transition:transform .28s ease,text-shadow .28s ease;}
+#tech-stack .skill-brand-icon{width:42px;height:42px;object-fit:contain;position:relative;z-index:1;transition:transform .28s ease,filter .28s ease;}
+#tech-stack .skill-card:hover .skill-brand-icon{transform:scale(1.1);filter:drop-shadow(0 0 9px rgba(255,255,255,.18));}
+#tech-stack .skill-card:hover .skill-card-icon{transform:scale(1.1);text-shadow:0 0 18px currentColor;}
+#tech-stack .skill-card span{color:#f1f1f1;}
+@media(max-width:700px){#tech-stack .skill-brand-icon{width:36px;height:36px}.skill-card-icon{font-size:32px!important}}
+</style>
+<style id="skills-syntax-override">
+#tech-stack .skills-syntax-container{width:min(100%,1050px);margin:0 auto;}
+#tech-stack .skill-heading{text-align:center;margin-bottom:3rem;}
+#tech-stack .skill-heading h2{color:#fff;}
+#tech-stack .skill-heading h2 span{color:#248cff;}
+#tech-stack .skill-syntax-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;max-width:1050px;margin:0 auto;}
+#tech-stack .skill-card{min-height:155px;padding:1.7rem 1.3rem;}
+#tech-stack .skill-card.is-hidden{display:none!important;}
+@media(max-width:1050px){#tech-stack .skill-syntax-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:800px){#tech-stack .skill-syntax-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:560px){#tech-stack .skill-syntax-grid{grid-template-columns:1fr;}}
+</style>
+<style id="contact-refined-styles">
+#contact-form.contact-refined{
+  background:#0f0f0f;
+  color:#fff;
+  padding:80px 24px 88px;
+  position:relative;
+  overflow:hidden;
+}
+#contact-form .contact-refined-container{
+  width:min(100%,1080px);
+  margin:0 auto;
+  padding:46px 60px 58px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:24px;
+  background:rgba(17,21,27,.92);
+  box-shadow:0 20px 70px rgba(0,0,0,.30);
+  text-align:center;
+}
+#contact-form .contact-refined-title p{
+  margin:0 0 4px;
+  color:#008CFF;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+}
+#contact-form .contact-refined-title h2{
+  margin:0;
+  color:#fff;
+  font-size:clamp(3.2rem,6vw,5.3rem);
+  line-height:1.05;
+  font-weight:800;
+  letter-spacing:-.04em;
+}
+#contact-form .contact-refined-title h2 span{color:#008CFF}
+#contact-form .contact-refined-socials{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin:34px 0 26px;
+}
+#contact-form .contact-refined-socials a{
+  width:72px;
+  height:72px;
+  border:3px solid #008CFF;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#008CFF;
+  background:transparent;
+  text-decoration:none;
+  font-size:27px;
+  transition:transform .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease;
+}
+#contact-form .contact-refined-socials a:hover{
+  transform:translateY(-5px) scale(1.05);
+  background:#008CFF;
+  color:#07101a;
+  box-shadow:0 0 25px rgba(0,140,255,.35);
+}
+#contact-form .contact-refined-detail{
+  margin:0 auto 30px;
+  color:#9da8b7;
+  font-size:18px;
+  line-height:1.5;
+}
+#contact-form .contact-refined-form-wrap{
+  width:100%;
+}
+#contact-form .contact-refined-form-wrap form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+#contact-form .contact-refined-form-wrap input,
+#contact-form .contact-refined-form-wrap select,
+#contact-form .contact-refined-form-wrap textarea{
+  width:100%;
+  box-sizing:border-box;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;
+  background:#1a1d23;
+  color:#fff;
+  padding:18px 20px;
+  font:inherit;
+  font-size:16px;
+  outline:none;
+  transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;
+}
+#contact-form .contact-refined-form-wrap input,
+#contact-form .contact-refined-form-wrap select{height:66px}
+#contact-form .contact-refined-form-wrap textarea{
+  min-height:155px;
+  resize:vertical;
+}
+#contact-form .contact-refined-form-wrap input::placeholder,
+#contact-form .contact-refined-form-wrap textarea::placeholder{color:#777d87}
+#contact-form .contact-refined-form-wrap select{color:#777d87}
+#contact-form .contact-refined-form-wrap select option{background:#1a1d23;color:#fff}
+#contact-form .contact-refined-form-wrap input:focus,
+#contact-form .contact-refined-form-wrap select:focus,
+#contact-form .contact-refined-form-wrap textarea:focus{
+  border-color:#008CFF;
+  box-shadow:0 0 0 3px rgba(0,140,255,.10);
+  background:#1c2027;
+}
+#contact-form .contact-name-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+#contact-form .contact-refined-form-wrap button{
+  align-self:center;
+  border:0;
+  border-radius:32px;
+  background:#008CFF;
+  color:#fff;
+  padding:17px 42px;
+  font-size:17px;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+#contact-form .contact-refined-form-wrap button:hover{
+  transform:translateY(-2px);
+  background:#087fe0;
+  box-shadow:0 0 28px rgba(0,140,255,.35);
+}
+@media(max-width:700px){
+  #contact-form.contact-refined{padding:55px 16px 65px}
+  #contact-form .contact-refined-container{padding:36px 20px 40px;border-radius:18px}
+  #contact-form .contact-refined-socials{gap:12px;margin:28px 0 22px}
+  #contact-form .contact-refined-socials a{width:58px;height:58px;font-size:21px;border-width:2px}
+  #contact-form .contact-refined-detail{font-size:14px}
+  #contact-form .contact-name-row{grid-template-columns:1fr;gap:18px}
+  #contact-form .contact-refined-form-wrap input,
+  #contact-form .contact-refined-form-wrap select{height:58px}
+}
+</style>
+
+<style id="instagram-tutorial-modal-css">
+#instagram-video-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.82);z-index:99999;padding:24px}
+#instagram-video-modal.is-open{display:flex}
+#instagram-video-modal .ig-modal-box{position:relative;width:min(540px,100%);max-height:92vh;overflow:auto;background:#000;border:1px solid rgba(0,140,255,.45);border-radius:16px;padding:20px;box-shadow:0 20px 80px rgba(0,0,0,.65)}
+#instagram-video-modal .ig-close{position:absolute;right:12px;top:8px;width:38px;height:38px;border:0;border-radius:50%;background:#111;color:#fff;font-size:26px;cursor:pointer;z-index:2}
+#instagram-video-modal .ig-embed-wrap{padding-top:24px;display:flex;justify-content:center}
+#instagram-video-modal .ig-loading{color:#aaa;text-align:center;padding:35px 10px}
+</style>
+
+</head>
+<body>
+<style>
+:root{--yo-green:#008CFF;--yo-bg:#000;--yo-panel:#111;--yo-text:#fff;--yo-muted:#a6a6a6}
+.site-header{position:fixed;top:0;left:0;right:0;height:68px;z-index:9000;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.site-header .logo{position:absolute;left:6%;font:800 1.55rem/1 Inter,Arial,sans-serif;color:#fff;text-decoration:none;letter-spacing:-.05em}.site-header .logo span{color:var(--yo-green)}
+.site-header nav{display:flex;align-items:center;justify-content:center;gap:34px}.site-header nav a{position:relative;color:#bcbcbc;text-decoration:none;font:600 .86rem/1 Inter,Arial,sans-serif;letter-spacing:.02em;transition:.25s}.site-header nav a:hover,.site-header nav a.active{color:#fff}.site-header nav a:after{content:"";position:absolute;left:50%;bottom:-11px;width:0;height:2px;background:var(--yo-green);transform:translateX(-50%);transition:.25s}.site-header nav a:hover:after,.site-header nav a.active:after{width:100%}
+.theme-btn{position:absolute;right:6%;width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,140,255,.45);background:rgba(10,20,20,.7);color:var(--yo-green);font-size:1.1rem;cursor:pointer}.menu-btn{display:none;position:absolute;right:6%;background:none;border:0;color:#fff;font-size:1.5rem}
+.hero-ref{padding-top:68px}
+@media(max-width:900px){.site-header{justify-content:flex-start;padding-left:6%}.site-header nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;padding:14px 0 20px;background:rgba(0,0,0,.97);border-bottom:1px solid #222}.site-header nav.open{display:flex}.site-header nav a{padding:12px 20px}.menu-btn{display:block}.theme-btn{right:13%}}
+body.light{background:#f5f7f8;color:#111} body.light .site-header{background:rgba(255,255,255,.9);border-bottom-color:#dce3e5} body.light .site-header .logo{color:#111} body.light .site-header nav a{color:#555} body.light .site-header nav a:hover,body.light .site-header nav a.active{color:#111}
+body.light section.bg-black,body.light section.bg-\[\#0f0f0f\]{background:#f5f7f8!important;color:#111!important} body.light .bg-\[\#111\]{background:#fff!important} body.light .text-white{color:#111!important} body.light .text-gray-300{color:#555!important} body.light .text-gray-400{color:#666!important}
+body.light .theme-btn{background:#fff;color:#087d66}
+</style>
+<header class="site-header">
+<a class="logo" href="#home">YOUSSEF<span>.</span></a>
+<nav id="desktop-nav">
+
+</nav>
+<button aria-label="Toggle theme" class="theme-btn" id="themeBtn">☼</button><button aria-label="Menu" class="menu-btn" id="menuBtn">☰</button>
+</header>
+<!-- Scroll Progress Bar -->
+<div class="fixed right-6 top-1/2 transform -translate-y-1/2 h-64 w-1.5 bg-gray-700 rounded-full z-50 hidden sm:block" id="scroll-bar">
+<div class="bg-[#008CFF] h-0 w-full rounded-full transition-all duration-300 ease-out shadow-md shadow-[#008CFF]" id="scroll-indicator"></div>
+</div>
+<!-- Loading Animation -->
+<div id="loading">
+<div class="loading-text" id="name-loader"><span data-text="Y">Y</span><span data-text="O">O</span><span data-text="U">U</span><span data-text="S">S</span><span data-text="S">S</span><span data-text="E">E</span><span data-text="F">F</span></div>
+</div>
+<!-- Hero Section -->
+<section class="hero-ref position-relative container-fluid min-vh-100 d-flex justify-content-center align-items-center text-white overflow-hidden" id="home" style="background-color: #000000">
+<!-- Hero Line Waves Background -->
+<div class="position-absolute w-100 h-100 top-0 start-0" id="line-waves-container" style="z-index: 0"></div>
+<!-- Hero Content -->
+<div class="container text-center position-relative" style="z-index: 1">
+<h1 class="display-4 fw-bold">
+<span class="text-white me-2">Hi, I'm</span>
+<button class="button" data-text="Youssef">
+<span class="actual-text"> YOUSSEF </span>
+<span aria-hidden="true" class="hover-text"> YOUSSEF </span>
+</button>
+</h1>
+<a class="shadow__btn mt-4" href="#projects">View Projects</a>
+</div>
+</section>
+<!-- Continuous Projects-style background: About → Contact -->
+
+<!-- About Me Section -->
+<div id="portfolio-content-shell"><div aria-hidden="true" id="particles-global"></div><section class="bg-black text-white py-20 px-6" id="about">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-10 px-4">
+<div class="flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden shadow-lg" id="about-img">
+<img alt="Youssef Ouahman" class="w-full h-full object-cover" src="youssef-photo.png"/>
+</div>
+<div class="max-w-2xl" id="about-text">
+<h2 class="text-3xl md:text-4xl font-semibold leading-snug mb-4">I'm <span class="text-[#008CFF] font-bold">Youssef Ouahman</span>, a Systems &amp; Network Administrator and Security Support Analyst.</h2>
+<p class="text-gray-300 text-lg leading-relaxed mb-6">Specialized in systems and networks, with a strong interest in infrastructure administration and cybersecurity. I enjoy troubleshooting incidents, identifying root causes, and restoring services in a clean and structured way.</p>
+<p class="text-gray-300 text-lg leading-relaxed mb-6">My technical environment includes <span class="text-[#008CFF] font-bold">Cisco</span>, <span class="text-[#008CFF] font-bold">Windows Server</span>, <span class="text-[#008CFF] font-bold">Active Directory</span>, <span class="text-[#008CFF] font-bold">Linux</span>, virtualization, VPNs, firewalls, <span class="text-[#008CFF] font-bold">Check Point</span>, <span class="text-[#008CFF] font-bold">WithSecure EDR</span>, <span class="text-[#008CFF] font-bold">SIEM</span>, <span class="text-[#008CFF] font-bold">Clearswift</span> and <span class="text-[#008CFF] font-bold">Wallix Bastion</span>.</p>
+<ul class="example-2">
+<li class="icon-content"><a aria-label="Instagram" data-social="instagram" href="https://www.instagram.com/youssef_sysnet" target="_blank"><div class="filled"></div><i class="fab fa-instagram" style="font-size:24px;color:#e1306c"></i></a><div class="tooltip">Instagram</div></li>
+<li class="icon-content"><a aria-label="Facebook" data-social="facebook" href="https://www.facebook.com/share/1YwDsxTGbw/?mibextid=wwXIfr" target="_blank"><div class="filled"></div><i class="fab fa-facebook" style="font-size:24px;color:#1877f2"></i></a><div class="tooltip">Facebook</div></li>
+<li class="icon-content"><a aria-label="Email" data-social="email" href="mailto:"><div class="filled"></div><i class="fas fa-envelope" style="font-size:22px;color:#e84f4b"></i></a><div class="tooltip">Email</div></li>
+<li class="icon-content"><a aria-label="LinkedIn" data-social="linkedin" href="https://www.linkedin.com/in/youssef-ouahman-43a9a6353" target="_blank"><div class="filled"></div><i class="fab fa-linkedin" style="font-size:24px;color:#0a66c2"></i></a><div class="tooltip">LinkedIn</div></li>
+<li class="icon-content"><a aria-label="GitHub" data-social="github" href="https://github.com/YoussefSysNet" target="_blank"><div class="filled"></div><i class="fab fa-github" style="font-size:24px;color:#222"></i></a><div class="tooltip">GitHub</div></li>
+<li class="icon-content"><a aria-label="WhatsApp" data-social="whatsapp" href="https://wa.me/212767097135" target="_blank"><div class="filled"></div><i class="fab fa-whatsapp" style="font-size:24px;color:#25d366"></i></a><div class="tooltip">WhatsApp</div></li>
+</ul>
+<div class="flex align-items-center justify-content-center mt-8"><a download="" href="./CV_Youssef_Ouahman.pdf" rel="noopener noreferrer" target="_blank"><div class="download-container"><label class="download-label"><span class="download-circle"><svg aria-hidden="true" class="download-icon" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 19V5m0 14-4-4m4 4 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></span><p class="download-title">Download CV</p></label></div></a></div>
+</div>
+</div>
+</section><section class="bg-black text-white py-20 px-6" id="journey">
+<div class="max-w-6xl mx-auto"><h2 class="text-4xl font-bold mb-16 text-center text-[#008CFF]">Journey</h2><div class="relative"><div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#008CFF]"></div>
+<div class="relative mb-16 md:mb-24 md:flex justify-start"><div class="hidden md:block absolute w-4 h-4 bg-[#008CFF] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div><div class="md:w-1/2 md:pr-10"><div class="bg-[#111] p-6 rounded-2xl border border-[#008CFF] shadow-lg journey-card"><h3 class="text-xl font-semibold text-[#008CFF]">Security Support Analyst — Banque Populaire</h3><span class="text-sm text-gray-400">May 2026 — Present · Casablanca</span><p class="mt-2 text-gray-300">Security alert monitoring and triage, incident analysis and qualification, threat handling with WithSecure EDR, escalation and follow-up, SIEM, VPN, Check Point, Clearswift, and Wallix Bastion.</p></div></div><div class="md:w-1/2"></div></div><div class="relative mb-16 md:mb-24 md:flex justify-end"><div class="hidden md:block absolute w-4 h-4 bg-[#008CFF] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div><div class="md:w-1/2"></div><div class="md:w-1/2 md:pl-10"><div class="bg-[#111] p-6 rounded-2xl border border-[#008CFF] shadow-lg journey-card"><h3 class="text-xl font-semibold text-[#008CFF]">IT Support Technician — Banque Populaire</h3><span class="text-sm text-gray-400">October 2025 — May 2026 · Casablanca</span><p class="mt-2 text-gray-300">User support, Windows 10/11, Active Directory, GPO, WDS, network shares, folder redirection, network printers, and LAN/Wi-Fi troubleshooting.</p></div></div></div><div class="relative mb-16 md:mb-24 md:flex justify-start"><div class="hidden md:block absolute w-4 h-4 bg-[#008CFF] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div><div class="md:w-1/2 md:pr-10"><div class="bg-[#111] p-6 rounded-2xl border border-[#008CFF] shadow-lg journey-card"><h3 class="text-xl font-semibold text-[#008CFF]">Systems &amp; Network Technician — Clinique Al Madina</h3><span class="text-sm text-gray-400">June 2025 — September 2025 · Casablanca</span><p class="mt-2 text-gray-300">Helpdesk, workstation maintenance, user accounts, permissions, GPO, WDS, printers, and LAN/Wi-Fi configuration.</p></div></div><div class="md:w-1/2"></div></div><div class="relative mb-16 md:mb-24 md:flex justify-end"><div class="hidden md:block absolute w-4 h-4 bg-[#008CFF] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div><div class="md:w-1/2"></div><div class="md:w-1/2 md:pl-10"><div class="bg-[#111] p-6 rounded-2xl border border-[#008CFF] shadow-lg journey-card"><h3 class="text-xl font-semibold text-[#008CFF]">IT Maintenance &amp; Support — NTIC 2 Sidi Maarouf</h3><span class="text-sm text-gray-400">March 2025 — May 2025 · Casablanca</span><p class="mt-2 text-gray-300">Technical support, switch, router, and access-point configuration, technical documentation, and network incident troubleshooting.</p></div></div></div><div class="relative mb-16 md:mb-24 md:flex justify-start"><div class="hidden md:block absolute w-4 h-4 bg-[#008CFF] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div><div class="md:w-1/2 md:pr-10"><div class="bg-[#111] p-6 rounded-2xl border border-[#008CFF] shadow-lg journey-card"><h3 class="text-xl font-semibold text-[#008CFF]">Specialized Technician — Systems &amp; Networks</h3><span class="text-sm text-gray-400">2023 — 2025 · ISTA NTIC 2 Sidi Maarouf</span><p class="mt-2 text-gray-300">Training focused on systems administration, networking, virtualization, Windows/Linux services, and cybersecurity.</p></div></div><div class="md:w-1/2"></div></div></div></div></section><section class="bg-black text-white py-20 px-6 relative overflow-hidden" id="tech-stack">
+<div class="skills-syntax-container">
+<div class="section-title skill-heading"><h2>Skills</h2></div>
+<div aria-label="Skill categories" class="filters skill-filters" role="tablist">
+<button class="skill-filter active" data-filter="all" type="button">All</button>
+<button class="skill-filter" data-filter="network" type="button">Network</button>
+<button class="skill-filter" data-filter="system" type="button">System</button>
+<button class="skill-filter" data-filter="security" type="button">Security</button>
+<button class="skill-filter" data-filter="tools" type="button">Tools</button>
+</div>
+<div class="skills-grid skill-syntax-grid" reveal=""><div class="skill-card network" data-category="network"><img class="skill-brand-icon" src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco logo" loading="lazy"><span>Cisco</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-router skill-card-icon" style="color:#20C997"></i><span>Routing</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-network-wired skill-card-icon" style="color:#00B8D9"></i><span>Switching</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-globe skill-card-icon" style="color:#3B82F6"></i><span>TCP/IP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-diagram-project skill-card-icon" style="color:#8B5CF6"></i><span>VTP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-share-nodes skill-card-icon" style="color:#F59E0B"></i><span>STP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-link skill-card-icon" style="color:#14B8A6"></i><span>EtherChannel</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-sitemap skill-card-icon" style="color:#EF4444"></i><span>OSPF</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-shuffle skill-card-icon" style="color:#F97316"></i><span>EIGRP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-repeat skill-card-icon" style="color:#EC4899"></i><span>RIP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-address-card skill-card-icon" style="color:#22C55E"></i><span>DHCP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-database skill-card-icon" style="color:#38BDF8"></i><span>DNS</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-server skill-card-icon" style="color:#A855F7"></i><span>HSRP</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-right-left skill-card-icon" style="color:#F59E0B"></i><span>NAT / PAT</span></div><div class="skill-card network" data-category="network"><i aria-hidden="true" class="fa-solid fa-chart-line skill-card-icon" style="color:#06B6D4"></i><span>SNMP</span></div><div class="skill-card system" data-category="system"><img class="skill-brand-icon" src="windows.svg" alt="Windows Server logo" loading="lazy"><span>Windows Server</span></div><div class="skill-card system" data-category="system"><img class="skill-brand-icon" src="windows.svg" alt="Windows 10/11 logo" loading="lazy"><span>Windows 10/11</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-users-gear skill-card-icon" style="color:#0078D4"></i><span>Active Directory</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-sliders skill-card-icon" style="color:#8B5CF6"></i><span>GPO</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-hard-drive skill-card-icon" style="color:#0078D4"></i><span>WDS</span></div><div class="skill-card system" data-category="system"><img class="skill-brand-icon" src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux logo" loading="lazy"><span>Linux</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-network-wired skill-card-icon" style="color:#22C55E"></i><span>DHCP / DNS</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-terminal skill-card-icon" style="color:#F59E0B"></i><span>SSH</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-folder-open skill-card-icon" style="color:#EAB308"></i><span>Samba</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-folder-tree skill-card-icon" style="color:#14B8A6"></i><span>NFS</span></div><div class="skill-card system" data-category="system"><img class="skill-brand-icon" src="https://cdn.simpleicons.org/centos/932279" alt="CentOS logo" loading="lazy"><span>CentOS</span></div><div class="skill-card system" data-category="system"><img class="skill-brand-icon" src="office365.svg" alt="Microsoft 365 logo" loading="lazy"><span>Microsoft 365</span></div><div class="skill-card system" data-category="system"><img class="skill-brand-icon" src="vmware.svg" alt="VMware logo" loading="lazy"><span>VMware</span></div><div class="skill-card system" data-category="system"><i aria-hidden="true" class="fa-solid fa-server skill-card-icon" style="color:#0078D4"></i><span>Hyper-V</span></div><div class="skill-card security" data-category="security"><img class="skill-brand-icon" src="checkpoint.svg" alt="Check Point logo" loading="lazy"><span>Check Point</span></div><div class="skill-card security" data-category="security"><img class="skill-brand-icon" src="https://cdn.simpleicons.org/fortinet/EE3124" alt="FortiGate logo" loading="lazy"><span>FortiGate</span></div><div class="skill-card security" data-category="security"><i aria-hidden="true" class="fa-solid fa-lock skill-card-icon" style="color:#8B5CF6"></i><span>VPN / IPsec</span></div><div class="skill-card security" data-category="security"><img class="skill-brand-icon" src="withsecure.svg" alt="WithSecure EDR logo" loading="lazy"><span>WithSecure EDR</span></div><div class="skill-card security" data-category="security"><img class="skill-brand-icon" src="eset.svg" alt="ESET logo" loading="lazy"><span>ESET</span></div><div class="skill-card security" data-category="security"><i aria-hidden="true" class="fa-solid fa-chart-column skill-card-icon" style="color:#06B6D4"></i><span>SIEM</span></div><div class="skill-card security" data-category="security"><img class="skill-brand-icon" src="clearswift.svg" alt="Clearswift logo" loading="lazy"><span>Clearswift</span></div><div class="skill-card security" data-category="security"><img class="skill-brand-icon" src="wallix.svg" alt="Wallix Bastion logo" loading="lazy"><span>Wallix Bastion</span></div><div class="skill-card security" data-category="security"><i aria-hidden="true" class="fa-solid fa-ethernet skill-card-icon" style="color:#EF4444"></i><span>Port Security</span></div><div class="skill-card security" data-category="security"><i aria-hidden="true" class="fa-solid fa-eye skill-card-icon" style="color:#22C55E"></i><span>Security Monitoring</span></div><div class="skill-card security" data-category="security"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation skill-card-icon" style="color:#F59E0B"></i><span>Incident Response</span></div><div class="skill-card tools" data-category="tools"><img class="skill-brand-icon" src="https://cdn.simpleicons.org/python/3776AB" alt="Python logo" loading="lazy"><span>Python</span></div><div class="skill-card tools" data-category="tools"><i aria-hidden="true" class="fa-solid fa-diagram-project skill-card-icon" style="color:#1BA0D7"></i><span>Packet Tracer</span></div><div class="skill-card tools" data-category="tools"><img class="skill-brand-icon" src="eve-ng.svg" alt="EVE-NG logo" loading="lazy"><span>EVE-NG</span></div><div class="skill-card tools" data-category="tools"><i aria-hidden="true" class="fa-solid fa-headset skill-card-icon" style="color:#22C55E"></i><span>Helpdesk</span></div><div class="skill-card tools" data-category="tools"><i aria-hidden="true" class="fa-solid fa-screwdriver-wrench skill-card-icon" style="color:#F97316"></i><span>Troubleshooting</span></div><div class="skill-card tools" data-category="tools"><i aria-hidden="true" class="fa-solid fa-file-lines skill-card-icon" style="color:#A855F7"></i><span>Documentation</span></div></div>
+</div>
+</section><section class="bg-black text-white py-20 px-6 relative overflow-hidden" id="videos">
+<div class="max-w-6xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold mb-4">Tutorials</h2>
+  </div>
+  <div class="instagram-videos-grid">
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DUBmnAhjA3h/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="C’est quoi un réseau ?" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi un réseau ?</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DUJICsgjBQ9/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Types de réseaux — PAN / LAN" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi les types de réseaux ? — Partie 1 : PAN / LAN</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DUTktyRDF_k/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Types de réseaux — MAN / WAN" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi les types de réseaux ? — Partie 2 : MAN / WAN</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DVCL5SCDNrw/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Routeur et Switch" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi un Routeur et un Switch ?</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DaoFVO8saTh/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Active Directory — Workgroup" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi Active Directory ? — Partie 1 : Workgroup</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DatUx-fMf5u/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Active Directory — Domaine" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi Active Directory ? — Partie 2 : Domaine</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DbgWr4QsDkt/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Firewall" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi un Firewall ?</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/p/DbOWb4LsSHX/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="Proxy" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi un Proxy ?</h3></div>
+    </a>
+    <a class="instagram-video-card" href="https://www.instagram.com/reel/Dbkgsu4ITis/" target="_blank" rel="noopener noreferrer">
+      <div class="instagram-video-placeholder"><img src="videos-cover.png" alt="RAID" loading="lazy"><span class="instagram-play"><i class="fas fa-play" aria-hidden="true"></i></span></div>
+      <div class="instagram-video-info"><h3>C’est quoi le RAID ?</h3></div>
+    </a>
+  </div>
+</div>
+</section><section class="bg-[#0f0f0f] text-white py-20 px-6" id="activity"><div class="max-w-6xl mx-auto"><div class="text-center mb-12"><h2 class="text-4xl font-bold mb-4">Technical Activity</h2></div><div class="grid md:grid-cols-4 gap-6"><div class="bg-[#111] p-6 rounded-xl text-center border border-gray-800"><div class="text-2xl font-bold text-[#008CFF] mb-2">NETWORK</div><p class="text-gray-400">LAN / WAN, routing, switching and Wi-Fi</p></div><div class="bg-[#111] p-6 rounded-xl text-center border border-gray-800"><div class="text-2xl font-bold text-[#008CFF] mb-2">SYSTEM</div><p class="text-gray-400">Windows, Linux, AD, GPO, DNS and DHCP</p></div><div class="bg-[#111] p-6 rounded-xl text-center border border-gray-800"><div class="text-2xl font-bold text-[#008CFF] mb-2">SECURITY</div><p class="text-gray-400">EDR, SIEM, VPNs and firewall support</p></div><div class="bg-[#111] p-6 rounded-xl text-center border border-gray-800"><div class="text-2xl font-bold text-[#008CFF] mb-2">ACCESS</div><p class="text-gray-400">Wallix Bastion and privileged access</p></div></div></div></section><section class="relative bg-black text-white py-20 px-6 overflow-hidden" id="projects">
+<div class="relative z-10">
+<div class="max-w-6xl mx-auto text-center mb-10">
+<h2 class="text-4xl font-bold mb-3">Projects</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-7 max-w-6xl mx-auto">
+<!-- Existing project -->
+<div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+<img alt="Site-to-Site IPsec VPN" class="w-full h-60 object-cover" src="vpn.jpg"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold mb-2">Site-to-Site IPsec VPN</h3>
+<p class="text-gray-700 mb-4">Deployment of a Site-to-Site VPN lab with FortiGate in EVE-NG, including interfaces, routing, DHCP, IPsec Phase 1/2, firewall policies and tunnel validation.</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">FortiGate</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">EVE-NG</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">IPsec</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Windows Server</span>
+</div>
+<div class="flex gap-4">
+<a class="bg-[#008CFF] text-white px-4 py-2 rounded hover:bg-[#0076D6] transition-all text-sm" href="Projet_VPN_NPS.pdf" target="_blank">REPORT</a>
+<a class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm" href="mailto:?subject=Site-to-Site%20IPsec%20VPN">DISCUSS</a>
+</div>
+</div>
+</div>
+<!-- Existing project -->
+<div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+<img alt="IoT &amp; Smart Home Management" class="w-full h-60 object-cover" src="iot.jpg"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold mb-2">IoT &amp; Smart Home Management</h3>
+<p class="text-gray-700 mb-4">Final-year project focused on smart-device configuration and a small home-automation environment using Cisco Packet Tracer.</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">IoT</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Packet Tracer</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Smart Home</span>
+</div>
+<div class="flex gap-4">
+<a class="bg-[#008CFF] text-white px-4 py-2 rounded hover:bg-[#0076D6] transition-all text-sm" href="PFE_IoT_Domotique.pdf" target="_blank">REPORT</a>
+<a class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm" href="mailto:?subject=IoT%20%26%20Smart%20Home%20Management">DISCUSS</a>
+</div>
+</div>
+</div>
+<!-- Existing project -->
+<div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+<img alt="Network Installation &amp; Maintenance" class="w-full h-60 object-cover" src="network.jpg"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold mb-2">Network Installation &amp; Maintenance</h3>
+<p class="text-gray-700 mb-4">Hands-on work around switches, routers, access points, LAN/Wi-Fi troubleshooting, maintenance and technical documentation.</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Cisco</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">LAN</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Wi-Fi</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Troubleshooting</span>
+</div>
+<div class="flex gap-4">
+<a class="bg-[#008CFF] text-white px-4 py-2 rounded hover:bg-[#0076D6] transition-all text-sm" href="Rapport_Stage_Reseaux.pdf" target="_blank">REPORT</a>
+<a class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm" href="mailto:?subject=Network%20Installation%20%26%20Maintenance">DISCUSS</a>
+</div>
+</div>
+</div>
+<!-- New project: Zabbix -->
+<div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+<img alt="Zabbix Monitoring &amp; Server Supervision" class="w-full h-60 object-cover" src="Zabbix_Monitoring_Server_Supervision.jpg"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold mb-2">Zabbix Monitoring &amp; Server Supervision</h3>
+<p class="text-gray-700 mb-4">Installation and configuration of Zabbix on Ubuntu, including the Zabbix server, database, web interface and Windows agent.</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Zabbix</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Ubuntu</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">MySQL</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Monitoring</span>
+</div>
+<div class="flex gap-4">
+<a class="bg-[#008CFF] text-white px-4 py-2 rounded hover:bg-[#0076D6] transition-all text-sm" href="Zabbix_Monitoring_Server_Supervision.pdf" target="_blank">REPORT</a>
+<a class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm" href="mailto:?subject=Zabbix%20Monitoring%20%26%20Server%20Supervision">DISCUSS</a>
+</div>
+</div>
+</div>
+<!-- New project: GLPI -->
+<div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+<img alt="GLPI IT Service Management Deployment" class="w-full h-60 object-cover" src="GLPI_IT_Service_Management_Deployment.jpg"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold mb-2">GLPI IT Service Management Deployment</h3>
+<p class="text-gray-700 mb-4">Deployment of GLPI on Linux with Apache, PHP and SQL Server, including scripted installation and initial web configuration.</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">GLPI</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Linux</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Apache</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">SQL Server</span>
+</div>
+<div class="flex gap-4">
+<a class="bg-[#008CFF] text-white px-4 py-2 rounded hover:bg-[#0076D6] transition-all text-sm" href="GLPI_IT_Service_Management_Deployment.pdf" target="_blank">REPORT</a>
+<a class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm" href="mailto:?subject=GLPI%20IT%20Service%20Management%20Deployment">DISCUSS</a>
+</div>
+</div>
+</div>
+<!-- New project: Ansible + DHCP -->
+<div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+<img alt="Windows DHCP Automation with Ansible" class="w-full h-60 object-cover" src="Windows_DHCP_Automation_Ansible.jpg"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold mb-2">Windows DHCP Automation with Ansible</h3>
+<p class="text-gray-700 mb-4">Automation of Windows DHCP deployment from Ubuntu using Ansible and WinRM, including scope, gateway and DNS configuration.</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Ansible</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">Windows Server</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">DHCP</span>
+<span class="bg-gray-100 px-2 py-1 text-xs rounded">WinRM</span>
+</div>
+<div class="flex gap-4">
+<a class="bg-[#008CFF] text-white px-4 py-2 rounded hover:bg-[#0076D6] transition-all text-sm" href="Windows_DHCP_Automation_Ansible.pdf" target="_blank">REPORT</a>
+<a class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-all text-sm" href="mailto:?subject=Windows%20DHCP%20Automation%20with%20Ansible">DISCUSS</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="bg-black text-white py-20 px-6 relative overflow-hidden" id="certifications">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-14">
+<h2 class="text-4xl md:text-5xl font-bold mb-4 text-[#008CFF]">Certifications</h2>
+</div>
+<div class="cert-grid">
+<article class="cert-card-modern reveal-section">
+<div class="cert-image-wrap"><img alt="Networking Basics certificate" src="networking-basics.png"/></div>
+<div class="cert-body"><span class="cert-provider">CISCO NETWORKING ACADEMY</span><h3>Networking Basics</h3><a class="cert-badge" href="https://www.credly.com/badges/b58ce955-fe94-4614-beb3-8e79da846116/public_url" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verified</a></div>
+</article>
+<article class="cert-card-modern reveal-section">
+<div class="cert-image-wrap"><img alt="Networking Devices and Initial Configuration certificate" src="basics.png"/></div>
+<div class="cert-body"><span class="cert-provider">CISCO NETWORKING ACADEMY</span><h3>Networking Devices &amp; Initial Configuration</h3><a class="cert-badge" href="https://www.credly.com/badges/08c7c28c-3cca-43dc-910e-3d1a3b3c666b/public_url" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verified</a></div>
+</article>
+<article class="cert-card-modern reveal-section">
+<div class="cert-image-wrap"><img alt="Introduction to Cybersecurity certificate" src="introduction-to-cybersecurity.png"/></div>
+<div class="cert-body"><span class="cert-provider">CISCO NETWORKING ACADEMY</span><h3>Introduction to Cybersecurity</h3><a class="cert-badge" href="https://www.credly.com/badges/d0154f29-3d5b-40b5-9d19-457d25d38917/public_url" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verified</a></div>
+</article>
+<article class="cert-card-modern reveal-section">
+<div class="cert-image-wrap"><img alt="Junior Cybersecurity Analyst Career Path certificate" src="junior-cybersecurity-analyst-career-path.1.png"/></div>
+<div class="cert-body"><span class="cert-provider">CISCO NETWORKING ACADEMY</span><h3>Junior Cybersecurity Analyst Career Path</h3><a class="cert-badge" href="https://www.credly.com/badges/1f7baa52-ca06-444d-856c-f3289619afe0/public_url" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verified</a></div>
+</article>
+<article class="cert-card-modern reveal-section">
+<div class="cert-image-wrap"><img alt="Python Essentials 1 certificate" src="python-essentials-1.1.png"/></div>
+<div class="cert-body"><span class="cert-provider">CISCO NETWORKING ACADEMY</span><h3>Python Essentials 1</h3><a class="cert-badge" href="https://www.credly.com/badges/fa34625e-90ac-43ac-a7da-9f1659bc8b54/public_url" target="_blank" rel="noopener"><i class="fa-solid fa-circle-check"></i> Verified</a></div>
+</article>
+</div>
+</div>
+</section><section class="contact-refined" id="contact-form">
+<div class="contact-refined-container">
+<div class="contact-refined-title">
+<p>GET IN TOUCH</p>
+<h2>Let's <span>Talk</span></h2>
+</div>
+<div aria-label="Social links" class="contact-refined-socials">
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/youssef-ouahman-43a9a6353" rel="noopener" target="_blank" title="LinkedIn">
+<i class="fab fa-linkedin-in"></i>
+</a>
+<a aria-label="Email" href="mailto:" title="Email">
+<i class="fas fa-envelope"></i>
+</a>
+<a aria-label="WhatsApp" href="https://wa.me/212767097135" rel="noopener" target="_blank" title="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a aria-label="Phone" href="tel:+212767097135" title="Phone">
+<i class="fas fa-phone"></i>
+</a>
+</div>
+<p class="contact-refined-detail">
+      Casablanca, Morocco · +212 767 097 135 · 
+    </p>
+<div class="contact-refined-form-wrap">
+<form id="contact-message-form" action="https://formspree.io/f/xvkoqgwn" method="post">
+<div class="contact-name-row">
+<input name="firstName" placeholder="First Name" required="" type="text"/>
+<input name="lastName" placeholder="Last Name" required="" type="text"/>
+</div>
+<input name="email" placeholder="Email" required="" type="email"/>
+<select name="subject" required="">
+<option value="">Subject</option>
+<option>Opportunity</option>
+<option>IT Project</option>
+<option>Cybersecurity</option>
+<option>Networking</option>
+<option>Other</option>
+</select>
+<textarea name="message" placeholder="Your message..." required="" rows="6"></textarea>
+<button type="submit">SEND MESSAGE</button>
+</form>
+</div>
+</div>
+</section></div>
+<!-- JOURNEY SECTION -->
+
+<!-- TECH STACK SECTION -->
+
+<!-- ACTIVITY + PROJECTS -->
+
+
+<!-- CERTIFICATIONS SECTION -->
+
+<!-- CONTACT FORM SECTION -->
+
+<section class="bg-black text-white py-16 text-center"><p class="text-gray-300 mb-3">Let's connect and build something useful.</p><a class="text-[#008CFF] text-xl" href="mailto:"></a></section>
+<a class="fixed-email" href="mailto:" title="Mail Me"></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://unpkg.com/@motionone/dom/dist/motion.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Draggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/EaselPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/PixiPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/EasePack.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/CustomEase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- ParticleJs -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Back to Top Button -->
+<div class="wrapper">
+<button class="back2top-button" id="backToTop">
+<svg class="svgIcon" viewbox="0 0 384 512">
+<path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+</svg>
+<span class="button-label">Back to Top</span>
+</button>
+</div>
+
+<div id="instagram-video-modal" aria-hidden="true">
+  <div class="ig-modal-box" role="dialog" aria-modal="true" aria-label="Tutorial video">
+    <button class="ig-close" type="button" aria-label="Close">&times;</button>
+    <div class="ig-embed-wrap"><div class="ig-loading">Chargement de la vidéo...</div></div>
+  </div>
+</div>
+<script id="instagram-tutorial-modal-js">
+document.addEventListener('DOMContentLoaded',()=>{
+  const modal=document.getElementById('instagram-video-modal');
+  if(!modal)return;
+  const wrap=modal.querySelector('.ig-embed-wrap');
+  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');wrap.innerHTML='<div class="ig-loading">Chargement de la vidéo...</div>';document.body.style.overflow='';};
+  modal.querySelector('.ig-close').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
+  document.querySelectorAll('.instagram-video-card').forEach(card=>{
+    card.addEventListener('click',e=>{
+      e.preventDefault();
+      const url=card.getAttribute('href');
+      if(!url)return;
+      let embedUrl=url;
+      try{
+        const u=new URL(url);
+        const parts=u.pathname.split('/').filter(Boolean);
+        const type=parts[0];
+        const code=parts[1];
+        if(code && (type==='p'||type==='reel'||type==='tv')) embedUrl='https://www.instagram.com/'+type+'/'+code+'/embed/';
+      }catch(err){}
+      wrap.innerHTML='<iframe class="instagram-direct-frame" title="Tutorial vidéo Instagram" src="'+embedUrl+'" loading="eager" allowtransparency="true" frameborder="0" scrolling="no" allow="autoplay; encrypted-media; picture-in-picture" style="display:block;width:100%;max-width:540px;height:760px;border:0;border-radius:10px;background:#000;"></iframe>';
+      modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    });
+  });
+});
+</script>
+
+<script src="script.js"></script>
+<script id="skills-syntax-filter">
+document.addEventListener('DOMContentLoaded',()=>{const root=document.querySelector('#tech-stack');if(!root)return;const buttons=[...root.querySelectorAll('.skill-filter')],cards=[...root.querySelectorAll('.skill-card')];buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(card=>card.classList.toggle('is-hidden',f!=='all'&&!card.classList.contains(f)));}));});
+</script>
+</body>
+</html>
